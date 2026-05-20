@@ -1,0 +1,32 @@
+[2026-04-25T07:09:15.228Z] FULL ERROR IN /CREATE:
+MongoServerError: E11000 duplicate key error collection: tracechain.batches index: productID_1 dup key: { productID: null }
+    at InsertOneOperation.handleOk (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async executeOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\collection.js:154:16)
+
+[2026-04-25T07:09:15.233Z] FULL ERROR IN /CREATE:
+MongoServerError: E11000 duplicate key error collection: tracechain.batches index: productID_1 dup key: { productID: null }
+    at InsertOneOperation.handleOk (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async executeOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\collection.js:154:16)
+
+[2026-04-25T07:09:15.235Z] FULL ERROR IN /CREATE:
+MongoServerError: E11000 duplicate key error collection: tracechain.batches index: productID_1 dup key: { productID: null }
+    at InsertOneOperation.handleOk (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async executeOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\collection.js:154:16)
+
+[2026-04-25T07:09:32.170Z] FULL ERROR IN /CREATE:
+MongoServerError: E11000 duplicate key error collection: tracechain.batches index: productID_1 dup key: { productID: null }
+    at InsertOneOperation.handleOk (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\insert.js:51:19)
+    at tryOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:214:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async executeOperation (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\operations\execute_operation.js:78:16)
+    at async Collection.insertOne (C:\Users\Dell\OneDrive\Desktop\FoodTraceabilityProject\backend_node\node_modules\mongodb\lib\collection.js:154:16)
+
