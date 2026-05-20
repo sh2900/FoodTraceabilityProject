@@ -53,27 +53,23 @@ The system integrates blockchain verification, IoT telemetry monitoring, AI-powe
 - Voice Input Integration
 - Simulated Federated Learning
 - Simulated Zero-Knowledge Proof Verification
-
 ---
 
-## Screenshots
+## Project Structure
 
-### Login Page
-![Login](assets/login.png)
-
-### Dashboard
-![Dashboard](assets/dashboard.png)
-
-### Blockchain Explorer
-![Blockchain](assets/blockchain.png)
-
-### AI Assistant
-![Chatbot](assets/chatbot.png)
-
-### Product Journey Timeline
-![Timeline](assets/timeline.png)
-
----
+```bash
+FoodTraceabilityProject/
+│
+├── frontend/              # React frontend application
+├── backend_node/          # Node.js + Express backend
+├── contracts/             # Solidity smart contracts
+├── migrations/            # Truffle migration scripts
+├── build/                 # Compiled blockchain artifacts
+├── assets/                # Project assets and images
+├── README.md
+├── package.json
+└── .gitignore
+```
 
 ## Installation
 
