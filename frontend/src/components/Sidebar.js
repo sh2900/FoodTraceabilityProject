@@ -10,14 +10,12 @@ function Sidebar() {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div style={{
+    <div className="glass-panel" style={{
       width: "240px",
       height: "100vh",
-      backgroundColor: "var(--bg-sidebar)",
       color: "var(--text-primary)",
       padding: "2rem 1.5rem",
       position: "fixed",
-      borderRight: "1px solid var(--border)",
       zIndex: 100,
       display: 'flex',
       flexDirection: 'column'

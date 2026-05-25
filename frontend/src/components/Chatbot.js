@@ -65,13 +65,10 @@ function Chatbot() {
       )}
 
       {isOpen && (
-        <div style={{
+        <div className="chatbot-window" style={{
           width: '350px',
           height: '450px',
-          backgroundColor: 'var(--bg-surface)',
-          border: '1px solid var(--border)',
           borderRadius: '12px',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden'
@@ -102,7 +99,7 @@ function Chatbot() {
             display: 'flex',
             flexDirection: 'column',
             gap: '0.75rem',
-            backgroundColor: 'var(--bg-body)'
+            backgroundColor: 'transparent'
           }}>
             {messages.length === 0 && (
               <div style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: '2rem' }}>
@@ -114,13 +111,13 @@ function Chatbot() {
                 key={i}
                 style={{
                   alignSelf: msg.sender === 'user' ? 'flex-end' : 'flex-start',
-                  backgroundColor: msg.sender === 'user' ? 'var(--primary)' : 'var(--bg-surface)',
+                  background: msg.sender === 'user' ? 'var(--primary)' : 'var(--glass-bg)',
                   color: msg.sender === 'user' ? '#fff' : 'var(--text-primary)',
                   padding: '0.75rem 1rem',
                   borderRadius: '12px',
                   maxWidth: '80%',
                   wordWrap: 'break-word',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
                   border: msg.sender === 'bot' ? '1px solid var(--border)' : 'none'
                 }}
               >
@@ -135,7 +132,7 @@ function Chatbot() {
             display: 'flex',
             padding: '0.75rem',
             borderTop: '1px solid var(--border)',
-            backgroundColor: 'var(--bg-surface)',
+            backgroundColor: 'var(--glass-panel-bg)',
             alignItems: 'center',
             gap: '0.5rem'
           }}>
@@ -150,7 +147,7 @@ function Chatbot() {
                 border: '1px solid var(--border)',
                 borderRadius: '8px',
                 outline: 'none',
-                backgroundColor: 'var(--bg-body)',
+                backgroundColor: 'var(--input-bg)',
                 color: 'var(--text-primary)'
               }}
             />

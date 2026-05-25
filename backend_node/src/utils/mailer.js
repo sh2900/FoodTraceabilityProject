@@ -2,17 +2,20 @@ const nodemailer = require('nodemailer');
 
 const sendAlertEmail = async (batchId, temperature, stage, recipientEmail = 'alerts@tracechain.com') => {
   try {
-    // Generate test SMTP service account from ethereal.email
-    let testAccount = await nodemailer.createTestAccount();
+    // Check if SMTP credentials are provided, otherwise warn and skip
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER) {
+      console.warn("⚠️ SMTP credentials not configured in .env. Email alert skipped.");
+      return;
+    }
 
-    // Create a transporter object using the default SMTP transport
+    // Create a transporter object using the production SMTP transport
     let transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false, 
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT || 587,
+      secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
       auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass, // generated ethereal password
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
@@ -36,7 +39,7 @@ const sendAlertEmail = async (batchId, temperature, stage, recipientEmail = 'ale
 
     console.log("-----------------------------------------");
     console.log("📩 Alert Email Sent successfully!");
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    console.log("Message ID: %s", info.messageId);
     console.log("-----------------------------------------");
   } catch (error) {
     console.error("Failed to send alert email:", error);

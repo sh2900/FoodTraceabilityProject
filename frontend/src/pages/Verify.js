@@ -30,9 +30,9 @@ function Verify() {
   }, [batchId]);
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-body)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Public Header */}
-      <header style={{ padding: '1.5rem 2rem', background: 'var(--bg-app)', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <header className="glass-nav" style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--primary)', cursor: 'pointer' }} onClick={() => navigate('/verify')}>
           TraceChain <span style={{ color: 'var(--text-primary)' }}>Consumer Verify</span>
         </div>
@@ -52,7 +52,7 @@ function Verify() {
         ) : (
           <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             
-            <section className="card card-premium" style={{ textAlign: 'center', padding: '3rem' }}>
+            <section className="glass-card card-premium" style={{ textAlign: 'center', padding: '3rem' }}>
               <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>✅</div>
               <h1 style={{ marginBottom: '0.5rem', color: 'var(--primary)' }}>Authentic Product Verified</h1>
               <h2>{batch.productName}</h2>
@@ -76,12 +76,12 @@ function Verify() {
                   </div>
                 </div>
 
-                <div className="card" style={{ background: 'linear-gradient(135deg, var(--bg-app) 0%, var(--bg-body) 100%)' }}>
+                <div className="glass-card">
                   <h3 style={{ marginBottom: '1.5rem' }}>Immutable Ledger Records</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     {batch.blockchainRecords && batch.blockchainRecords.length > 0 ? (
                       batch.blockchainRecords.map((record, idx) => (
-                        <div key={idx} style={{ padding: '1rem', background: 'var(--bg-app)', borderRadius: '8px', borderLeft: '4px solid var(--secondary)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
+                        <div key={idx} style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', borderLeft: '4px solid var(--secondary)', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
                           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', marginBottom: '0.5rem' }}>
                             <span style={{ fontWeight: 700, textTransform: 'uppercase' }}>{record.stage} stage</span>
                             <span style={{ color: 'var(--text-muted)' }}>{new Date(record.timestamp).toLocaleString()}</span>

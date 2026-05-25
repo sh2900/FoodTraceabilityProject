@@ -14,14 +14,12 @@ function Navbar() {
   const defaultTitle = baseRoute.charAt(0).toUpperCase() + baseRoute.slice(1);
 
   return (
-    <nav style={{
+    <nav className="glass-nav" style={{
       height: '64px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       padding: '0 2rem',
-      backgroundColor: 'var(--bg-surface)',
-      borderBottom: '1px solid var(--border)',
       position: 'sticky',
       top: 0,
       zIndex: 50

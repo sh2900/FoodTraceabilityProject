@@ -13,9 +13,9 @@ function VerifySearch() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-body)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Public Header */}
-      <header style={{ padding: '1.5rem 2rem', background: 'var(--bg-app)', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <header className="glass-nav" style={{ padding: '1.5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--primary)' }}>TraceChain <span style={{ color: 'var(--text-primary)' }}>Consumer Verify</span></div>
         <button className="btn btn-secondary" onClick={() => navigate('/login')}>Staff Login</button>
       </header>
@@ -28,7 +28,7 @@ function VerifySearch() {
           </p>
         </div>
 
-        <section className="card" style={{ maxWidth: '600px', width: '100%', padding: '3rem', background: 'var(--bg-app)' }}>
+        <section className="glass-card card-premium" style={{ maxWidth: '600px', width: '100%', padding: '3rem' }}>
           <form onSubmit={handleTrace}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <VoiceInputField 
