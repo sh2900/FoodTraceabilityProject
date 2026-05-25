@@ -13,7 +13,7 @@ function MyProducts() {
     const fetchMyProducts = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/product/my/products", {
+        const res = await axios.get(process.env.REACT_APP_API_URL + "/api/product/my/products", {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProducts(res.data);

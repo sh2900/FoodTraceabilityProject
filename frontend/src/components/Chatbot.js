@@ -30,7 +30,7 @@ function Chatbot() {
     setInput('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/ai/chat', {
+      const res = await axios.post(process.env.REACT_APP_API_URL + '/api/ai/chat', {
         message: currentInput,
         language: i18n.language || 'en'
       });

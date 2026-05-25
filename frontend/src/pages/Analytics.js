@@ -20,8 +20,8 @@ function Analytics() {
         const token = localStorage.getItem("token");
         
         const [productsRes, alertsRes] = await Promise.all([
-            axios.get("http://localhost:5000/api/product/all/list", { headers: { Authorization: `Bearer ${token}` } }),
-            axios.get("http://localhost:5000/api/alert", { headers: { Authorization: `Bearer ${token}` } })
+            axios.get(process.env.REACT_APP_API_URL + "/api/product/all/list", { headers: { Authorization: `Bearer ${token}` } }),
+            axios.get(process.env.REACT_APP_API_URL + "/api/alert", { headers: { Authorization: `Bearer ${token}` } })
         ]);
 
         const products = productsRes.data;

@@ -26,7 +26,7 @@ function WarehouseDashboard() {
   const fetchWarehouseData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/product/my/products", {
+      const res = await axios.get(process.env.REACT_APP_API_URL + "/api/product/my/products", {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -64,7 +64,7 @@ function WarehouseDashboard() {
   const handleClaim = async (batchId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/product/claim", { batchId }, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.post(process.env.REACT_APP_API_URL + "/api/product/claim", { batchId }, { headers: { Authorization: `Bearer ${token}` } });
       alert(`Batch ${batchId} claimed successfully!`);
       fetchWarehouseData();
     } catch (err) {
@@ -81,7 +81,7 @@ function WarehouseDashboard() {
       let loc = { lat: 17.3850, lng: 78.4867 }; // Fallback
       try { loc = await getCurrentLocation(); } catch(e) { console.warn(e); }
 
-      await axios.post("http://localhost:5000/api/product/update", {
+      await axios.post(process.env.REACT_APP_API_URL + "/api/product/update", {
         batchId,
         currentStage: 'transporter',
         location: loc, 

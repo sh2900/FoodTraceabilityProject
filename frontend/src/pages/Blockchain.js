@@ -19,7 +19,7 @@ function Blockchain() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/blockchain/logs/all", {
+      const res = await axios.get(process.env.REACT_APP_API_URL + "/api/blockchain/logs/all", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setAllLogs(res.data.reverse()); // Show latest first
@@ -35,7 +35,7 @@ function Blockchain() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get(`http://localhost:5000/api/blockchain/logs/${productId}`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/blockchain/logs/${productId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLogs(res.data.reverse());

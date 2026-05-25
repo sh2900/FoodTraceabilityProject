@@ -8,7 +8,7 @@ const AlertsPanel = () => {
     const fetchAlerts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/alert', {
+        const res = await axios.get(process.env.REACT_APP_API_URL + '/api/alert', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setAlerts(res.data);

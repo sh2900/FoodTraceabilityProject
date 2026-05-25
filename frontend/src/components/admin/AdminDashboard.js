@@ -30,9 +30,9 @@ function AdminDashboard() {
     try {
       const token = localStorage.getItem("token");
       const [productsRes, alertsRes, pendingUsersRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/product/my/products", { headers: { Authorization: `Bearer ${token}` } }),
-        axios.get("http://localhost:5000/api/alert", { headers: { Authorization: `Bearer ${token}` } }),
-        axios.get("http://localhost:5000/api/admin/users/pending", { headers: { Authorization: `Bearer ${token}` } }).catch(() => ({ data: [] }))
+        axios.get(process.env.REACT_APP_API_URL + "/api/product/my/products", { headers: { Authorization: `Bearer ${token}` } }),
+        axios.get(process.env.REACT_APP_API_URL + "/api/alert", { headers: { Authorization: `Bearer ${token}` } }),
+        axios.get(process.env.REACT_APP_API_URL + "/api/admin/users/pending", { headers: { Authorization: `Bearer ${token}` } }).catch(() => ({ data: [] }))
       ]);
 
       setBatches(productsRes.data);
@@ -58,7 +58,7 @@ function AdminDashboard() {
       let loc = { lat: 17.3850, lng: 78.4867 }; // Fallback
       try { loc = await getCurrentLocation(); } catch(e) { console.warn(e); }
 
-      await axios.post("http://localhost:5000/api/product/create", {
+      await axios.post(process.env.REACT_APP_API_URL + "/api/product/create", {
         batchId: `BATCH-${Math.floor(Math.random() * 10000)}`,
         productName: form.name,
         quantity: parseInt(form.quantity),
@@ -77,7 +77,7 @@ function AdminDashboard() {
   const handleApproveUser = async (userId) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/admin/users/approve/${userId}`, {}, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/admin/users/approve/${userId}`, {}, { headers: { Authorization: `Bearer ${token}` } });
       alert("User Approved!");
       fetchData();
     } catch (err) {

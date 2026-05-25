@@ -21,7 +21,7 @@ function FarmerDashboard() {
   const fetchBatches = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/product/my/products", {
+      const res = await axios.get(process.env.REACT_APP_API_URL + "/api/product/my/products", {
         headers: { Authorization: `Bearer ${token}` }
       });
       setBatches(res.data);
@@ -50,7 +50,7 @@ function FarmerDashboard() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/product/create", {
+      await axios.post(process.env.REACT_APP_API_URL + "/api/product/create", {
         batchId: `FARM-${Math.floor(Math.random() * 10000)}`,
         productName: form.name,
         quantity: qty,
@@ -77,7 +77,7 @@ function FarmerDashboard() {
       let loc = { lat: 17.4448, lng: 78.3498 }; // Fallback
       try { loc = await getCurrentLocation(); } catch(e) { console.warn(e); }
 
-      await axios.post("http://localhost:5000/api/product/update", {
+      await axios.post(process.env.REACT_APP_API_URL + "/api/product/update", {
         batchId,
         currentStage: 'warehouse',
         location: loc, 

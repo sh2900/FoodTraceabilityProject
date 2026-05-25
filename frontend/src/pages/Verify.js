@@ -17,7 +17,7 @@ function Verify() {
     const fetchBatch = async () => {
       try {
         // Using the new PUBLIC endpoint, no token required!
-        const res = await axios.get(`http://localhost:5000/api/product/public/${batchId}`);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/product/public/${batchId}`);
         setBatch(res.data);
       } catch (err) {
         console.error("Error fetching public batch details", err);

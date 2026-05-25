@@ -16,7 +16,7 @@ function Traceability() {
     const fetchBatch = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`http://localhost:5000/api/product/${batchId}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/product/${batchId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setBatch(res.data);
