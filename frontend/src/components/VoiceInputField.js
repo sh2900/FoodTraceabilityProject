@@ -12,6 +12,18 @@ const VoiceInputField = ({
   step, 
   className = "input-field" 
 }) => {
+  const handleVoiceText = (text) => {
+    if (!onVoiceText) return;
+    
+    if (type === 'number') {
+      // Strip all non-numeric characters except for periods and minus signs
+      const sanitized = text.replace(/[^0-9.-]/g, '');
+      onVoiceText(sanitized);
+    } else {
+      onVoiceText(text);
+    }
+  };
+
   return (
     <div style={{ position: 'relative', width: style?.width || '100%', flex: style?.flex }}>
       <input 
@@ -25,7 +37,7 @@ const VoiceInputField = ({
         style={{ ...style, paddingRight: '2.5rem', width: '100%' }}
       />
       <div style={{ position: 'absolute', right: '0.25rem', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center' }}>
-        <VoiceInput onText={onVoiceText} />
+        <VoiceInput onText={handleVoiceText} />
       </div>
     </div>
   );
