@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProductTimeline from '../components/ProductTimeline';
+// eslint-disable-next-line no-unused-vars
 import StatusBadge from '../components/StatusBadge';
 import MapView from '../components/MapView';
 

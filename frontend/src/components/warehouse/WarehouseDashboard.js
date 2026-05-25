@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StatusBadge from '../StatusBadge';
+// eslint-disable-next-line no-unused-vars
 import SummaryCard from '../SummaryCard';
 import VoiceInputField from '../VoiceInputField';
 import { useTranslation } from 'react-i18next';

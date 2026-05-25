@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { useTheme } from "../context/ThemeContext";
 
 function Layout({ children }) {
+  // eslint-disable-next-line no-unused-vars
   const { theme } = useTheme();
 
   return (

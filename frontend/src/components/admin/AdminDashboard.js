@@ -18,6 +18,7 @@ function AdminDashboard() {
   });
   const [batches, setBatches] = useState([]);
   const [pendingUsers, setPendingUsers] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({ name: '', quantity: '', location: '', temp: 4, humidity: 65 });
 
