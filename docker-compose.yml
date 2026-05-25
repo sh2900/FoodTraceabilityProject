@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: tracechain_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - tracechain_net
+
+  ganache:
+    image: trufflesuite/ganache:latest
+    container_name: tracechain_ganache
+    ports:
+      - "7545:8545"
+    command: >
+      ganache -d 
+      -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat"
+    networks:
+      - tracechain_net
+
+  backend:
+    build:
+      context: ./backend_node
+    container_name: tracechain_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - MONGO_URI=mongodb://mongodb:27017/tracechain
+      - RPC_URL=http://ganache:8545
+      - JWT_SECRET=f4a3d8c2e9b14076a54f9d2c18e3b7a5d9c2e4b6a8f1d3c5e7b9a2c4e6f8d0b1
+      # Note: Teammates will need to fill in CONTRACT_ADDR after running truffle migrate locally
+      - CONTRACT_ADDR=
+      - ACCOUNT_ADDR=0x627306090abaB3A6e1400e9345bC60c78a8BEf57
+      - PRIVATE_KEY=0xc87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3
+      - GEMINI_API_KEY=
+    depends_on:
+      - mongodb
+      - ganache
+    volumes:
+      - ./backend_node:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - tracechain_net
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: tracechain_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+      - REACT_APP_CONTRACT_ADDR=
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - tracechain_net
+
+volumes:
+  mongo_data:
+
+networks:
+  tracechain_net:
